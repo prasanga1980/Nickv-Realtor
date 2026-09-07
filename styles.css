@@ -1,0 +1,39 @@
+/* styles.css - Basic responsive styles for Nickv Realtor site (served from gh-pages root) */
+:root{
+  --bg:#ffffff;
+  --muted:#6b7280;
+  --accent:#0ea5a4;
+  --card:#f8fafc;
+  --text:#0f172a;
+  --container-max:1100px;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;line-height:1.5;color:var(--text);background:var(--bg)}
+.container{max-width:var(--container-max);margin:0 auto;padding:1rem}
+.site-header{background:linear-gradient(90deg,rgba(14,165,164,0.08),transparent);padding:2rem 0}
+.site-title{margin:0;font-size:1.5rem}
+.tagline{margin:0;color:var(--muted)}
+.hero{margin-top:1.5rem}
+.hero h2{margin-bottom:0.75rem}
+.listings{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 14px rgba(16,24,40,0.06);}
+.card img{width:100%;height:180px;object-fit:cover;display:block}
+.card h3{margin:0.75rem 1rem 0.25rem 1rem;font-size:1.05rem}
+.card p{margin:0 1rem 1rem 1rem;color:var(--muted);font-size:0.95rem}
+.about, .contact{margin-top:1.75rem;padding:1rem;background:linear-gradient(180deg,#ffffff,rgba(14,165,164,0.02));border-radius:8px}
+.contact ul{padding-left:1.2rem}
+.contact a{color:var(--accent);text-decoration:none}
+.site-footer{padding:1rem 0;margin-top:2rem;border-top:1px solid #eef2f7;color:var(--muted)}
+/* Utilities */
+.flex{display:flex;align-items:center;gap:1rem}
+.btn{display:inline-block;background:var(--accent);color:white;padding:0.6rem 1rem;border-radius:8px;text-decoration:none}
+/* Responsive adjustments */
+@media (min-width:900px){
+  .card img{height:220px}
+  .site-title{font-size:2rem}
+}
+@media (max-width:420px){
+  .card img{height:140px}
+  .container{padding:0.75rem}
+}
