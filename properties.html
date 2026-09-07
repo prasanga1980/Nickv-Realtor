@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Properties — Nickv Realtor</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <div>
+        <h1 class="site-title">Nickv Realtor</h1>
+        <p class="tagline">Trusted local real estate services</p>
+      </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/index.html">Home</a>
+        <a href="/properties.html">Properties</a>
+        <a href="/about.html">About</a>
+        <a href="/testimonials.html">Testimonials</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Available Properties</h2>
+      <p>Browse current listings below. Click any property for more details (coming soon).</p>
+    </section>
+
+    <section class="listings" aria-labelledby="all-listings">
+      <h3 id="all-listings">All Listings</h3>
+      <div id="listings-grid" class="listings">
+        <!-- Cards rendered by script -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="flex" style="justify-content:space-between;align-items:center">
+        <div>
+          <strong>Nickv Realtor</strong>
+          <div class="tagline">info@nickvrealtor.example • +1 (234) 567-890</div>
+        </div>
+        <div>&copy; "Nickv Realtor"</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    fetch('/data/listings.json')
+      .then(r => r.json())
+      .then(data => {
+        const grid = document.getElementById('listings-grid');
+        (data.listings || []).forEach(listing => {
+          const card = document.createElement('article');
+          card.className = 'card';
+          card.innerHTML = `
+            <img src="${listing.image}" alt="${listing.title}">
+            <h3>${listing.title}</h3>
+            <p>${listing.price} • ${listing.beds} beds • ${listing.baths} baths • ${listing.sqft} sqft</p>
+            <p>${listing.description}</p>
+          `;
+          grid.appendChild(card);
+        });
+      })
+      .catch(()=>{/* ignore */});
+  </script>
+</body>
+</html>
