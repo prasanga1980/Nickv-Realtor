@@ -14,6 +14,12 @@ html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-
 .site-header{background:linear-gradient(90deg,rgba(14,165,164,0.08),transparent);padding:2rem 0}
 .site-title{margin:0;font-size:1.5rem}
 .tagline{margin:0;color:var(--muted)}
+/* New nav/header styles */
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.site-nav{display:flex;gap:1rem;align-items:center}
+.site-nav a{color:var(--text);text-decoration:none;padding:0.45rem 0.65rem;border-radius:6px}
+.site-nav a:hover{background:rgba(14,165,164,0.06);color:var(--accent)}
+.agent-photo{width:84px;height:84px;object-fit:cover;border-radius:8px}
 .hero{margin-top:1.5rem}
 .hero h2{margin-bottom:0.75rem}
 .listings{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
@@ -32,6 +38,10 @@ html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-
 @media (min-width:900px){
   .card img{height:220px}
   .site-title{font-size:2rem}
+}
+@media (max-width:700px){
+  .header-row{flex-direction:column;align-items:flex-start}
+  .agent-photo{width:64px;height:64px}
 }
 @media (max-width:420px){
   .card img{height:140px}
